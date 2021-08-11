@@ -1,0 +1,36 @@
+//might be usefult for posting requests
+
+import 'package:flutter/material.dart';
+
+class DonorProfile extends StatefulWidget {
+  @override
+  _DonorProfileState createState() => _DonorProfileState();
+}
+
+class _DonorProfileState extends State<DonorProfile> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('🤵',textScaleFactor: 2,),
+        centerTitle: true,
+        backgroundColor: Colors.red,
+      ),
+      body: Container(
+        margin: EdgeInsets.all(20),
+        child: Container(
+          color: Colors.blue,
+          constraints: BoxConstraints.tightForFinite(height: 20),
+          child: Text('height: 20'),
+        ),
+        decoration: BoxDecoration(
+          color: Colors.red[50] ,
+          borderRadius: BorderRadius.circular(30),
+        ),
+        alignment: Alignment.center,
+        constraints: BoxConstraints.tightForFinite(),
+
+      ),
+    );
+  }
+}

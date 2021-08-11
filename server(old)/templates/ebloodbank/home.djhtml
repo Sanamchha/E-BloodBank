@@ -1,0 +1,18 @@
+{% set pageTitle = "Home" %}
+{% extends 'ebloodbank/base.djhtml' %}
+
+{% block head %}{% endblock %}
+
+{% block bodyHead %}{% endblock %}
+
+{% block content %}
+	{% include '/ebloodbank/hero-section.djhtml' %}
+	{% include '/ebloodbank/our-services.djhtml' %}
+	{% include '/ebloodbank/about-us.djhtml' %}
+	{% include '/ebloodbank/home-cta.djhtml' %}
+	{% include '/ebloodbank/faq.djhtml' %}
+{% endblock %}
+
+{% block container %}{% endblock %}
+
+{% block tail %}{% endblock %}

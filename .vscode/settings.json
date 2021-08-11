@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": ["./server/ebloodbank/__init__.py"],
+}
+
+

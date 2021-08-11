@@ -1,0 +1,6 @@
+        First_name = request.args.get('a')
+        Last_name = request.args.get('b')
+        Contact_no = request.args.get('c')
+        Address = request.args.get('d')
+        Username = request.args.get('e')
+        Password = request.args.get('f')

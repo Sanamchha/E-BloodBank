@@ -1,0 +1,186 @@
+<!doctype html>
+
+    {% set name_short = "E-Blood Bank" %}
+    {% set pageTitle = "Profile" %}
+
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+           integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+           crossorigin=""/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.74.4/dist/L.Control.Locate.min.css" />
+        <link rel="stylesheet" type="text/css" href="/static/dashboard/css/dashboard.css">
+        
+        <title>{{pageTitle}} | {{name_short}}</title>
+    </head>
+
+    <body>
+        <header>
+            <div class="main-header">
+                <div class="container-fluid">
+                    <div class="main-header-left">
+                        <a class="toggle-sidebar-icon">
+                            <i class='bx bx-menu-alt-left'></i>
+                        </a>
+                    </div>
+                    <div class="main-header-center">
+
+                    </div>
+                    <div class="main-header-right">
+                        <a class="header-logout-icon" href="/logout">
+                            <i class='bx bx-exit'></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <sidebar>
+          <div class="main-sidebar">
+            <div class="main-sidebar-logo">
+                <a href="/dashboard">
+                    <h2>E-Blood Bank</h2>
+                </a>
+          </div>
+          <div class="main-sidebar-body">
+              <ul class="nav">
+                <li class="nav-header">
+                  <span class="nav-header-label">Dashboard</span>
+              </li>
+              <li class="nav-item active">
+                  <a class="nav-link" href="#">
+                    <i class='bx bx-user'></i>
+                    <span class="nav-link-label">Overview</span>
+                </a>
+            </li>
+            <li class="nav-header">
+              <span class="nav-header-label">Users</span>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class='bx bx-user'></i>
+                <span class="nav-link-label">All Users</span>
+            </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class='bx bx-user'></i>
+            <span class="nav-link-label">Add User</span>
+        </a>
+    </li>
+    <li class="nav-header">
+      <span class="nav-header-label">Institute</span>
+  </li>
+  <li class="nav-item">
+      <a class="nav-link" href="all-institute.html">
+        <i class='bx bx-user'></i>
+        <span class="nav-link-label">All Institute</span>
+    </a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="add-institute.html">
+    <i class='bx bx-user'></i>
+    <span class="nav-link-label">Add Institute</span>
+</a>
+</li>
+<li class="nav-header">
+  <span class="nav-header-label">Settings</span>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="#">
+    <i class='bx bx-user'></i>
+    <span class="nav-link-label">Account</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</sidebar>
+<main>
+  <div class="main-content">
+    <div class="container-fluid">
+      <div class="page-header-block">
+        <div class="breadcrumb-block">
+          <h2 class="page-header">Add New Institute</h2>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Institute</li>
+          </ol>
+        </div>
+        <div class="breadcrumb-btn">
+          <a type="button" class="btn btn-primary" href="/">Goto Home <i class='bx bx-right-arrow-alt'></i></a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="block">
+              <div class="profile-card">
+                <div class="profile-card-header d-flex justify-content-between">
+                  <h3>General Information</h3>
+                  <h5>User Id: <span># {{current_user.userId}}</span></h5>
+                </div>
+                <hr>
+                <div class="profile-information">
+                  <h4>First Name: <span>{{current_user.firstName}}</span></h4>
+                  <h4>Last Name: <span>{{current_user.lastName}}</span></h4>
+                  <h4>Blood Group: <span>{{current_user.bloodGroup}}</span></h4>
+                  <h4>Gender: <span>{{current_user.gender}}</span></h4>
+                  <h4>Age: <span>{{current_user.age}} Years Old</span></h4>
+                </div>
+              </div>
+          </div>
+          <div class="block">
+              <div class="profile-card">
+                <h3>Contact Information</h3>
+                <hr>
+                <div class="profile-information">
+                  <h4>Email: <span>{{current_user.email}}</span></h4>
+                  <h4>Phone Number: <span>(+977) {{current_user.phoneNumber}}</span></h4>
+                </div>
+              </div>
+          </div>
+          <div class="block">
+              <div class="profile-card">
+                <h3>Address Information</h3>
+                <hr>
+                <div class="profile-information">
+                  <h4>Address: <span>{{current_user.address}}</span></h4>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="block">
+            <div class="display-banner">
+              <img src="/static/img/dashboard/blooddonation.jpg">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="main-footer">
+  <div class="container-fluid text-center">
+    <span class="author-content">Designed & Developed By LogicVent Technololgy Pvt. Ltd.</span>
+  </div>
+</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<script>
+$(document).ready(function(){
+  $(".toggle-sidebar-icon").click(function(){
+    $(".main-sidebar").toggleClass("active");
+    $(".main-header").toggleClass("toggledSidebar");
+    $(".main-content").toggleClass("toggledSidebar");
+  });
+});
+</script>
+</body>
+</html>
