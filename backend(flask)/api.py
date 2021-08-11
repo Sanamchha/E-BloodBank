@@ -121,8 +121,8 @@ def Gpoints():
     cursor = conn.cursor()
     
 
-    if request.method == 'GET':
-        userlist = cursor.execute("SELECT * FROM users WHERE User_type='Donor' OR User_type='Both';").fetchall()
+    if request.method == 'POST':
+        userlist = cursor.execute("SELECT * FROM users WHERE Blood_type='A+';").fetchall()
         if not userlist:
             return page_not_found(404)
 

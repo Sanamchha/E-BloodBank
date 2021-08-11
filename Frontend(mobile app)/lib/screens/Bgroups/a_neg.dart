@@ -178,50 +178,51 @@ class AnegativeState extends State<Anegative> {
       ),
     );
   }
-}
 
 
 
-showdialog(context){
-  return showDialog(context: context, builder: (context){
-    return Center(
-      child: Material(
-        type: MaterialType.transparency,
-        child: Column(
-          children: [
-            SizedBox(height: 100,),
-            Text('Donors near me',textScaleFactor: 2,style: TextStyle(color: Colors.white),),
-            Container(
-              // color: Colors.blue,
-              decoration: BoxDecoration(
-                color: Colors.red[100],
-                borderRadius: BorderRadius.circular(20),
+
+  showdialog(context){
+    return showDialog(context: context, builder: (context){
+      return Center(
+        child: Material(
+          type: MaterialType.transparency,
+          child: Column(
+            children: [
+              SizedBox(height: 100,),
+              Text('Donors near me',textScaleFactor: 2,style: TextStyle(color: Colors.white),),
+              Container(
+                // color: Colors.blue,
+                decoration: BoxDecoration(
+                  color: Colors.red[100],
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                margin: EdgeInsets.all(20.0),
+                constraints: BoxConstraints.tightForFinite(height: 400),
+                child: ListView.builder
+                (
+                  itemCount: 10,
+                  itemBuilder: (BuildContext contet, int index){
+                    return Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      margin: EdgeInsets.all(20.0),
+                      child: ListTile(
+                        title: Text('data${index+1}'),
+                        onTap: (){
+                          
+                        },
+                      ),
+                    );
+                  },
+                )
               ),
-              margin: EdgeInsets.all(20.0),
-              constraints: BoxConstraints.tightForFinite(height: 400),
-              child: ListView.builder
-              (
-                itemCount: 10,
-                itemBuilder: (BuildContext contet, int index){
-                  return Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    margin: EdgeInsets.all(20.0),
-                    child: ListTile(
-                      title: Text('data${index+1}'),
-                      onTap: (){
-                        
-                      },
-                    ),
-                  );
-                },
-              )
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
-    );
-  });
-}
+      );
+    });
+  }
+} 
